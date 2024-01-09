@@ -37,21 +37,29 @@ export default function App() {
     return null
   }
 
+  // 登录状态直接进mainNav中 未登录状态进入login或register
+  // 目前未连接redux
+  const isLogin = true;
+
   return (
     <Provider store={store}>
-      {/* <MealsNavigation style={styles.container} onLayout={onLayoutRootView} /> */}
-      <NavigationContainer>
-        <Stack.Navigator
-          headerShown={false}
-          screenOptions={({route}) => ({
-              headerShown: false,
-          })}
-          initialRouteName={'Login'}>
-          <Stack.Screen name="Register" component={RegisterScreen} />
-          <Stack.Screen name="Login" component={LoginScreen} />
-        </Stack.Navigator>
-      </NavigationContainer>
-
+        {
+          isLogin ? (
+            <MealsNavigation style={styles.container} onLayout={onLayoutRootView} />
+          ) : (
+            <NavigationContainer>
+              <Stack.Navigator
+                headerShown={false}
+                screenOptions={({route}) => ({
+                    headerShown: false,
+                })}
+                initialRouteName={'Login'}>
+                <Stack.Screen name="Register" component={RegisterScreen} />
+                <Stack.Screen name="Login" component={LoginScreen} />
+              </Stack.Navigator>
+            </NavigationContainer>
+          )
+        }
     </Provider>
   )
 }
