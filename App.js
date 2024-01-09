@@ -9,6 +9,7 @@ import { useFonts } from 'expo-font'
 import * as SplashScreen from 'expo-splash-screen'
 
 import MealsNavigation from './navigation/MealsNavigation'
+import AppNavigator from './navigation/AppNavigations'
 import LoginScreen from './screens/NoAuth/LoginScreen'
 import RegisterScreen from './screens/NoAuth/RegisterScreen'
 import store from './store'
@@ -45,7 +46,7 @@ export default function App() {
     <Provider store={store}>
         {
           isLogin ? (
-            <MealsNavigation style={styles.container} onLayout={onLayoutRootView} />
+            <AppNavigator style={styles.container} onLayout={onLayoutRootView} />
           ) : (
             <NavigationContainer>
               <Stack.Navigator
