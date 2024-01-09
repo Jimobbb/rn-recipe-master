@@ -9,10 +9,17 @@ import { useFonts } from 'expo-font'
 import * as SplashScreen from 'expo-splash-screen'
 
 import MealsNavigation from './navigation/MealsNavigation'
+import LoginScreen from './screens/NoAuth/LoginScreen'
+import RegisterScreen from './screens/NoAuth/RegisterScreen'
 import store from './store'
+
+import { NavigationContainer } from '@react-navigation/native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
 // SplashScreen.preventAutoHideAsync()
 enableScreens() //提高性能
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -32,7 +39,19 @@ export default function App() {
 
   return (
     <Provider store={store}>
-      <MealsNavigation style={styles.container} onLayout={onLayoutRootView} />
+      {/* <MealsNavigation style={styles.container} onLayout={onLayoutRootView} /> */}
+      <NavigationContainer>
+        <Stack.Navigator
+          headerShown={false}
+          screenOptions={({route}) => ({
+              headerShown: false,
+          })}
+          initialRouteName={'Login'}>
+          <Stack.Screen name="Register" component={RegisterScreen} />
+          <Stack.Screen name="Login" component={LoginScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+
     </Provider>
   )
 }
