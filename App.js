@@ -12,6 +12,7 @@ import MealsNavigation from './navigation/MealsNavigation'
 import AppNavigator from './navigation/AppNavigations'
 import LoginScreen from './screens/NoAuth/LoginScreen'
 import RegisterScreen from './screens/NoAuth/RegisterScreen'
+import HelloScreen from './screens/NoAuth/HelloScreen'
 import store from './store'
 
 import { NavigationContainer } from '@react-navigation/native'
@@ -40,7 +41,7 @@ export default function App() {
 
   // 登录状态直接进mainNav中 未登录状态进入login或register
   // 目前未连接redux
-  const isLogin = true;
+  const isLogin = false;
 
   return (
     <Provider store={store}>
@@ -57,6 +58,7 @@ export default function App() {
                 initialRouteName={'Login'}>
                 <Stack.Screen name="Register" component={RegisterScreen} />
                 <Stack.Screen name="Login" component={LoginScreen} />
+                <Stack.Screen name="Hello" component={HelloScreen} />
               </Stack.Navigator>
             </NavigationContainer>
           )
