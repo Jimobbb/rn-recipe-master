@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
-import mealsReducer from './modules/mealsStore'
+// import mealsReducer from './modules/mealsStore'
 
 const store = configureStore({
   reducer: {
-    meals: mealsReducer
+    // meals: mealsReducer
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware({ serializableCheck: false })
 })

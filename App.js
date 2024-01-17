@@ -8,7 +8,7 @@ import { Provider } from 'react-redux'
 import { useFonts } from 'expo-font'
 import * as SplashScreen from 'expo-splash-screen'
 
-import MealsNavigation from './navigation/MealsNavigation'
+
 import AppNavigator from './navigation/AppNavigations'
 import LoginScreen from './screens/NoAuth/LoginScreen'
 import RegisterScreen from './screens/NoAuth/RegisterScreen'
