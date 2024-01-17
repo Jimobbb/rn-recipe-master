@@ -41,13 +41,15 @@ export default function App() {
 
   // 登录状态直接进mainNav中 未登录状态进入login或register
   // 目前未连接redux
-  const isLogin = false;
+  const isLogin = true;
 
   return (
-    <Provider store={store}>
+    <>
         {
           isLogin ? (
-            <AppNavigator style={styles.container} onLayout={onLayoutRootView} />
+            <Provider store={store}>
+              <AppNavigator style={styles.container} onLayout={onLayoutRootView} />
+            </Provider>
           ) : (
             <NavigationContainer>
               <Stack.Navigator
@@ -63,7 +65,7 @@ export default function App() {
             </NavigationContainer>
           )
         }
-    </Provider>
+    </>
   )
 }
 
